@@ -23,7 +23,7 @@ public class Program
    }
 
    static void ConfigureServices(IServiceCollection services) {
-      services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient("BOT_TOKEN"));
+      services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient("5909859455:AAEijjGD2jcxQPJ8H5nUdMJqeHlvWzOYx0M"));
       services.AddHostedService<Bot>();
    }
 }

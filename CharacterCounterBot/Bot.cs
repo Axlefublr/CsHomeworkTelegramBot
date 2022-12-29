@@ -33,20 +33,18 @@ internal class Bot : BackgroundService {
    async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
    {
       if (update.Type == UpdateType.CallbackQuery) {
-         await _telegramClient.SendTextMessageAsync(update.Message.Chat.Id, "You pressed a button", cancellationToken: cancellationToken);
+         await _telegramClient.SendTextMessageAsync(update.CallbackQuery.From.Id, "Sorry, I'm not programmed to operate on this, please send a normal message instead", cancellationToken: cancellationToken);
          return;
       }
 
       if (update.Type == UpdateType.Message) {
-         string message = GenerateResponse(update.Message.Text);
-         await _telegramClient.SendTextMessageAsync(update.Message.Chat.Id, message, cancellationToken: cancellationToken);
+         if (update.Message.Text == "bro that's crazy") {
+            await _telegramClient.SendTextMessageAsync(update.Message.From.Id, "fr on god no cap", cancellationToken: cancellationToken);
+            return;
+         }
+         await _telegramClient.SendTextMessageAsync(update.Message.From.Id, $"Your message consists of {update.Message.Text.Length} symbols", cancellationToken: cancellationToken);
          return;
       }
-   }
-
-   private string GenerateResponse(string text)
-   {
-      throw new NotImplementedException();
    }
 
    Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
