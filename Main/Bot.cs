@@ -1,3 +1,4 @@
+using Main.Controllers;
 using Microsoft.Extensions.Hosting;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
@@ -9,9 +10,23 @@ namespace Main;
 
 internal class Bot : BackgroundService {
    private readonly ITelegramBotClient _telegramClient;
+   private readonly InlineKeyboardController _inlineKeyboardController;
+   private readonly TextMessageController _textMessageController;
+   private readonly VoiceMessageController _voiceMessageController;
+   private readonly DefaultMessageController _defaultMessageController;
 
-   public Bot(ITelegramBotClient telegramBotClient) {
-      _telegramClient = telegramBotClient;
+   public Bot(
+      ITelegramBotClient telegramClient,
+      InlineKeyboardController inlineKeyboardController,
+      TextMessageController textMessageController,
+      VoiceMessageController voiceMessageController,
+      DefaultMessageController defaultMessageController
+   ) {
+      _telegramClient = telegramClient;
+      _inlineKeyboardController = inlineKeyboardController;
+      _textMessageController = textMessageController;
+      _voiceMessageController = voiceMessageController;
+      _defaultMessageController = defaultMessageController;
    }
 
    protected override Task ExecuteAsync(CancellationToken stoppingToken)
@@ -29,14 +44,22 @@ internal class Bot : BackgroundService {
 
    async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken) {
       if (update.Type == UpdateType.CallbackQuery) {
-         await _telegramClient.SendTextMessageAsync(update.Message.Chat.Id, "You pressed a button", cancellationToken: cancellationToken);
+         await _inlineKeyboardController.Handle(update.CallbackQuery, cancellationToken);
          return;
       }
 
       if (update.Type == UpdateType.Message) {
-         string message = GenerateResponse(update.Message.Text);
-         await _telegramClient.SendTextMessageAsync(update.Message.Chat.Id, message, cancellationToken: cancellationToken);
-         return;
+         switch (update.Message!.Type) {
+            case MessageType.Voice:
+               await _voiceMessageController.Handle(update.Message, cancellationToken);
+               return;
+            case MessageType.Text:
+               await _textMessageController.Handle(update.Message, cancellationToken);
+               return;
+            default:
+               await _defaultMessageController.Handle(update.Message, cancellationToken);
+               return;
+         }
       }
    }
 

@@ -1,4 +1,7 @@
 ﻿using System.Text;
+using Main.Configuration;
+using Main.Controllers;
+using Main.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Telegram.Bot;
@@ -22,7 +25,22 @@ public class Program
       Console.WriteLine("Service stopped");
    }
 
+   static AppSettings BuildAppSettings() {
+      return new AppSettings()
+      {
+         BotToken = "5890705941:AAEwEqmToyagFgrngTiN7v7DL8l8LyYah0M"
+      };
+   }
+
    static void ConfigureServices(IServiceCollection services) {
+
+      services.AddTransient<DefaultMessageController>();
+      services.AddTransient<VoiceMessageController>();
+      services.AddTransient<TextMessageController>();
+      services.AddTransient<InlineKeyboardController>();
+
+      services.AddSingleton<IStorage, MemoryStorage>();
+
       services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient("5890705941:AAEwEqmToyagFgrngTiN7v7DL8l8LyYah0M"));
       services.AddHostedService<Bot>();
    }
