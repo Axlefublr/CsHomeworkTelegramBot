@@ -1,3 +1,4 @@
+using Main.Configuration;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -14,7 +15,7 @@ public class VoiceMessageController
    
    public async Task Handle(Message message, CancellationToken cancellationToken) {
       Console.WriteLine($"Controller {GetType().Name} got message");
-      await _telegramClient.SendTextMessageAsync(message.Chat.Id, $"Got voice message");
+      await _telegramClient.SendTextMessageAsync(message.Chat.Id, $"Got voice message", cancellationToken: cancellationToken);
    }
 
 }

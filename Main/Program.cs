@@ -34,6 +34,8 @@ public class Program
 
    static void ConfigureServices(IServiceCollection services) {
 
+      AppSettings appSettings = BuildAppSettings();
+
       services.AddTransient<DefaultMessageController>();
       services.AddTransient<VoiceMessageController>();
       services.AddTransient<TextMessageController>();
@@ -41,7 +43,7 @@ public class Program
 
       services.AddSingleton<IStorage, MemoryStorage>();
 
-      services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient("5890705941:AAEwEqmToyagFgrngTiN7v7DL8l8LyYah0M"));
+      services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient(appSettings.BotToken));
       services.AddHostedService<Bot>();
    }
 }
