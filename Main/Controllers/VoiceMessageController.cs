@@ -20,7 +20,7 @@ public class VoiceMessageController
 
    public async Task Handle(Message message, CancellationToken cancellationToken)
    {
-      var fileId = message?.Voice.FileId;
+      var fileId = message.Voice?.FileId;
       if (fileId == null) {
          return;
       }
