@@ -28,7 +28,10 @@ public class Program
    static AppSettings BuildAppSettings() {
       return new AppSettings()
       {
-         BotToken = "5890705941:AAEwEqmToyagFgrngTiN7v7DL8l8LyYah0M"
+         DownloadFolder = @"C:\Users\serge\Downloads",
+         BotToken = "5890705941:AAEwEqmToyagFgrngTiN7v7DL8l8LyYah0M",
+         AudioFileName = "audio",
+         InputAudioFormat = "ogg"
       };
    }
 
