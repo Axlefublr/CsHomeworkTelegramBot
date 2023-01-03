@@ -31,7 +31,8 @@ public class Program
          DownloadFolder = @"C:\Users\serge\Downloads",
          BotToken = "5890705941:AAEwEqmToyagFgrngTiN7v7DL8l8LyYah0M",
          AudioFileName = "audio",
-         InputAudioFormat = "ogg"
+         InputAudioFormat = "ogg",
+         OutputAudioFormat = "wav"
       };
    }
 

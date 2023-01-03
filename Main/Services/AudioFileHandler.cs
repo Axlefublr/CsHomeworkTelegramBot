@@ -1,4 +1,5 @@
 using Main.Configuration;
+using Main.Utilities;
 using Telegram.Bot;
 
 namespace Main.Services;
@@ -26,6 +27,11 @@ public class AudioFileHandler : IFileHandler {
    }
 
    public string Process(string languageCode) {
-      throw new NotImplementedException();
+      string inputAudioPath = Path.Combine(_appSettings.DownloadFolder, _appSettings.AudioFileName + "." + _appSettings.InputAudioFormat);
+      string outputAudioPath = Path.Combine(_appSettings.DownloadFolder, _appSettings.AudioFileName + "." + _appSettings.OutputAudioFormat);
+
+      AudioConverter.TryConvert(inputAudioPath, outputAudioPath);
+
+      return "Conversion successful";
    }
 }
