@@ -32,6 +32,7 @@ public class AudioFileHandler : IFileHandler {
 
       AudioConverter.TryConvert(inputAudioPath, outputAudioPath);
 
-      return "Conversion successful";
+      var speechText = SpeechDetector.DetectSpeech(outputAudioPath, _appSettings.InputAudioBitrate, languageCode);
+      return speechText;
    }
 }
