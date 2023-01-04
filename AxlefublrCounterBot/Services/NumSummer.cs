@@ -2,7 +2,7 @@ namespace AxlefublrCounterBot.Services;
 
 public class NumSummer : INumSummer
 {
-   public int[] FormatMessage(string message)
+   private int[] FormatMessage(string message)
    {
       string[] wrongTypeNumbers = message.Split(' ');
       int[] correctTypeNumbers = new int[wrongTypeNumbers.Length];
@@ -20,8 +20,23 @@ public class NumSummer : INumSummer
       return correctTypeNumbers;
    }
 
-   public int GetNumSum(int[] numbers)
+   public int GetNumSum(string message)
    {
-      throw new NotImplementedException();
+      int sum = 0;
+
+      try
+      {
+         int[] numbers = FormatMessage(message);
+         foreach (int value in numbers)
+         {
+            sum += value;
+         }
+      }
+      catch (FormatException)
+      {
+         throw;
+      }
+
+      return sum;
    }
 }
