@@ -20,12 +20,12 @@ public class TextMessageController
             var buttons = new List<InlineKeyboardButton[]>
             {
                new[] {
-                  InlineKeyboardButton.WithCallbackData("Русский", "ru"),
-                  InlineKeyboardButton.WithCallbackData("English", "en")
+                  InlineKeyboardButton.WithCallbackData("Count characters", "characterCount"),
+                  InlineKeyboardButton.WithCallbackData("Sum numbers", "numSum")
                }
             };
 
-            string htmlMessage = $"<b> This bot transforms audio into text.</b>{Environment.NewLine}{Environment.NewLine}You can record a message if you don't want to type it out, then send it to whoever you want :){Environment.NewLine}";
+            string htmlMessage = $"<b> This bot counts your message characters or sums up your numbers for you.</b>{Environment.NewLine}{Environment.NewLine}Pick what you want to bot to do by pressing one of the buttons!{Environment.NewLine}";
 
             await _telegramClient.SendTextMessageAsync(message.Chat.Id, htmlMessage, cancellationToken: cancellationToken, parseMode: ParseMode.Html, replyMarkup: new InlineKeyboardMarkup(buttons));
             break;
