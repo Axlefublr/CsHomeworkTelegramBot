@@ -31,8 +31,8 @@ public class VoiceMessageController
 
       string userLanguageCode = _memoryStorage.GetSession(message.Chat.Id).LanguageCode;
 
-      _audioFileHandler.Process(userLanguageCode);
+      var result = _audioFileHandler.Process(userLanguageCode);
 
-      await _telegramClient.SendTextMessageAsync(message.Chat.Id, "Voice message downloaded", cancellationToken: cancellationToken);
+      await _telegramClient.SendTextMessageAsync(message.Chat.Id, result, cancellationToken: cancellationToken);
    }
 }

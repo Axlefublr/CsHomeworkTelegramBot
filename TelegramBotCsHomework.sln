@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCounterBot", "CharacterCounterBot\CharacterCounterBot.csproj", "{FCFE5C90-4449-41A2-86C4-E8119EEB3D85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxlefublrCounterBot", "AxlefublrCounterBot\AxlefublrCounterBot.csproj", "{100E8C50-E1BA-4478-9A5E-0CC2F43A3042}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{FCFE5C90-4449-41A2-86C4-E8119EEB3D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCFE5C90-4449-41A2-86C4-E8119EEB3D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCFE5C90-4449-41A2-86C4-E8119EEB3D85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{100E8C50-E1BA-4478-9A5E-0CC2F43A3042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{100E8C50-E1BA-4478-9A5E-0CC2F43A3042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{100E8C50-E1BA-4478-9A5E-0CC2F43A3042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{100E8C50-E1BA-4478-9A5E-0CC2F43A3042}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
