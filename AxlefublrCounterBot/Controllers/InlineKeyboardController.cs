@@ -26,15 +26,15 @@ public class InlineKeyboardController
 
       _memoryStorage.GetSession(callbackQuery.From.Id).Action = callbackQuery.Data;
 
-      string languageText = callbackQuery.Data switch
+      string currentAction = callbackQuery.Data switch
       {
-         "ru" => "Русский",
-         "en" => "English",
+         "characterCount" => "counting message charactes",
+         "numSum" => "summing up message numbers",
          _ => string.Empty
       };
 
       await _telegramClient.SendTextMessageAsync(callbackQuery.From.Id,
-         $"<b>Audio language is {languageText}.{Environment.NewLine}</b>"
+         $"<b>Current bot action is {currentAction}.{Environment.NewLine}</b>"
          + $"{Environment.NewLine}You can change it in the main menu.",
          cancellationToken: cancellationToken,
          parseMode: ParseMode.Html

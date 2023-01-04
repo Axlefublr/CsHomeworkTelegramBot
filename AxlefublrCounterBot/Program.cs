@@ -27,7 +27,7 @@ public class Program
 
    static void ConfigureServices(IServiceCollection services) {
 
-      AppSettings appSettings = new("5890705941:AAEwEqmToyagFgrngTiN7v7DL8l8LyYah0M");
+      AppSettings appSettings = new("5904191681:AAGDbxApDBbAPSGvOfuqV9lmPc1F5s8_3ok");
 
       services.AddTransient<DefaultMessageController>();
       services.AddTransient<VoiceMessageController>();
