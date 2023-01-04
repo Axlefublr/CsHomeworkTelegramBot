@@ -28,7 +28,7 @@ public class InlineKeyboardController
 
       string currentAction = callbackQuery.Data switch
       {
-         "characterCount" => "counting message charactes",
+         "characterCount" => "counting message characters",
          "numSum" => "summing up message numbers",
          _ => string.Empty
       };

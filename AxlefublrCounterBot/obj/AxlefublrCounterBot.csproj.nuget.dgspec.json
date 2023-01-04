@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Programming\\csproj\\TelegramBotCsHomework\\AxlefublrCounterBot\\AxlefublrCounterBot.csproj": {}
+    "C:\\Programming\\csproj\\TelegramBotCsHomework\\AxlefublrCounterBot\\AxlefublrCounterBot.csproj": {}
   },
   "projects": {
-    "c:\\Programming\\csproj\\TelegramBotCsHomework\\AxlefublrCounterBot\\AxlefublrCounterBot.csproj": {
+    "C:\\Programming\\csproj\\TelegramBotCsHomework\\AxlefublrCounterBot\\AxlefublrCounterBot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Programming\\csproj\\TelegramBotCsHomework\\AxlefublrCounterBot\\AxlefublrCounterBot.csproj",
+        "projectUniqueName": "C:\\Programming\\csproj\\TelegramBotCsHomework\\AxlefublrCounterBot\\AxlefublrCounterBot.csproj",
         "projectName": "AxlefublrCounterBot",
-        "projectPath": "c:\\Programming\\csproj\\TelegramBotCsHomework\\AxlefublrCounterBot\\AxlefublrCounterBot.csproj",
+        "projectPath": "C:\\Programming\\csproj\\TelegramBotCsHomework\\AxlefublrCounterBot\\AxlefublrCounterBot.csproj",
         "packagesPath": "C:\\Users\\serge\\.nuget\\packages\\",
-        "outputPath": "c:\\Programming\\csproj\\TelegramBotCsHomework\\AxlefublrCounterBot\\obj\\",
+        "outputPath": "C:\\Programming\\csproj\\TelegramBotCsHomework\\AxlefublrCounterBot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\serge\\AppData\\Roaming\\NuGet\\NuGet.Config"

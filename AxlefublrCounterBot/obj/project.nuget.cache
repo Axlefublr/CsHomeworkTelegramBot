@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZKWFPIBX4Ij6jwut6rCuzOSPdXmXmfzvykCIIxL3PJNmqK9f2Uu/4BTPUSPcPaRv1NOrhFqnUq6zjUN2jxa9qA==",
+  "dgSpecHash": "4fcPw/uYGLc1/IT5YcH5X4yqcysG8yuqBryVIQBQfMThl9v9fY4N4MiglgBT4uzaUrzVyKHrmjnmOwju3NdG6g==",
   "success": true,
-  "projectFilePath": "c:\\Programming\\csproj\\TelegramBotCsHomework\\AxlefublrCounterBot\\AxlefublrCounterBot.csproj",
+  "projectFilePath": "C:\\Programming\\csproj\\TelegramBotCsHomework\\AxlefublrCounterBot\\AxlefublrCounterBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\serge\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\serge\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",

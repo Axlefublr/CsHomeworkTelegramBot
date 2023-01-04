@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using AxlefublrCounterBot.Configuration;
-using AxlefublrCounterBot.Services;
 using AxlefublrCounterBot.Controllers;
+using AxlefublrCounterBot.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Telegram.Bot;
@@ -25,16 +25,24 @@ public class Program
       Console.WriteLine("Service stopped");
    }
 
+   static AppSettings BuildAppSettings() {
+      return new AppSettings()
+      {
+         BotToken = "5904191681:AAGDbxApDBbAPSGvOfuqV9lmPc1F5s8_3ok"
+      };
+   }
+
    static void ConfigureServices(IServiceCollection services) {
 
-      AppSettings appSettings = new("5904191681:AAGDbxApDBbAPSGvOfuqV9lmPc1F5s8_3ok");
+      AppSettings appSettings = BuildAppSettings();
+      services.AddSingleton(BuildAppSettings());
+
+      services.AddSingleton<IStorage, MemoryStorage>();
 
       services.AddTransient<DefaultMessageController>();
       services.AddTransient<VoiceMessageController>();
       services.AddTransient<TextMessageController>();
       services.AddTransient<InlineKeyboardController>();
-
-      services.AddSingleton<IStorage, MemoryStorage>();
 
       services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient(appSettings.BotToken));
       services.AddHostedService<Bot>();

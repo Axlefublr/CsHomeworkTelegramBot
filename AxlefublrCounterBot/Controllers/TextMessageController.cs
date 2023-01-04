@@ -17,8 +17,10 @@ public class TextMessageController
       _memoryStorage = memoryStorage;
    }
 
-   public async Task Handle(Message message, CancellationToken cancellationToken) {
-      switch (message.Text) {
+   public async Task Handle(Message message, CancellationToken cancellationToken)
+   {
+      switch (message.Text)
+      {
          case "/start":
             var buttons = new List<InlineKeyboardButton[]>
             {
@@ -40,7 +42,8 @@ public class TextMessageController
 
    private void DoMessageAction(Message message, CancellationToken cancellationToken)
    {
-      switch (_memoryStorage.GetSession(message.Chat.Id).Action) {
+      switch (_memoryStorage.GetSession(message.Chat.Id).Action)
+      {
          case "characterCount":
             _telegramClient.SendTextMessageAsync(message.Chat.Id, "The number of characters in your message is: " + message.Text.Length);
             break;
@@ -49,7 +52,9 @@ public class TextMessageController
             try
             {
                displayText = new NumSummer().GetNumSum(message.Text).ToString();
-            } catch (FormatException) {
+            }
+            catch (FormatException)
+            {
                displayText = "not counted because not all symbols in your message are numbers!";
             }
             _telegramClient.SendTextMessageAsync(message.Chat.Id, "The sum of all numbers in your message is " + displayText, cancellationToken: cancellationToken);
